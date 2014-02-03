@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.aardouin.cv.adapters.LeftDrawerAdapter;
 import com.aardouin.cv.R;
+import com.aardouin.cv.adapters.LeftDrawerAdapter;
 import com.aardouin.cv.fragments.CompetencesFragment;
 import com.aardouin.cv.fragments.ContactsFragment;
 import com.aardouin.cv.fragments.ExperiencesFragment;
@@ -40,7 +40,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         bind();
-        setCurrentItem(LeftDrawerAdapter.MenuItem.Presentation);
+
+
+        leftDrawer.setItemChecked(0, true);
     }
 
     private void bind() {
