@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_padding">
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="@dimen/default_component_size"
+        android:layout_height="@dimen/default_component_size"
+        android:gravity="center"
+        android:background="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_component_size"
+        android:layout_toRightOf="@id/level"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_vertical"
+        android:text="NAME" />
+</RelativeLayout>

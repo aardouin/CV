@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item>
         <shape android:shape="oval">
-            <solid android:color="@android:color/black" />
+            <solid android:color="@color/back_secondary" />
+            <stroke
+                android:width="@dimen/default_border"
+                android:color="@color/blue" />
             <size
-                android:width="60dp"
-                android:height="60dp" />
+                android:width="120dp"
+                android:height="120dp" />
         </shape>
     </item>
 

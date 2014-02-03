@@ -14,16 +14,16 @@ import com.aardouin.cv.R;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class ContactsFragment extends Fragment{
+public class ContactsFragment extends Fragment {
 
-   public final static String TAG= "CONTACTS_FRAGMENT";
+    public final static String TAG = "CONTACTS_FRAGMENT";
     private View mRootView;
     private TextView mPhone;
     private TextView mEmail;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mRootView = inflater.inflate(R.layout.contacts_container,container,false);
+        mRootView = inflater.inflate(R.layout.contacts_container, container, false);
         return mRootView;
     }
 
@@ -32,13 +32,13 @@ public class ContactsFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         mEmail = (TextView) mRootView.findViewById(R.id.email);
-        mPhone= (TextView) mRootView.findViewById(R.id.phone);
+        mPhone = (TextView) mRootView.findViewById(R.id.phone);
 
         mEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/html");
+                intent.setType("message/rfc822");
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.email)});
                 startActivity(intent);
             }
@@ -48,7 +48,7 @@ public class ContactsFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+getResources().getString(R.string.phone).trim()));
+                intent.setData(Uri.parse("tel:" + getResources().getString(R.string.phone).trim()));
                 startActivity(intent);
             }
         });
