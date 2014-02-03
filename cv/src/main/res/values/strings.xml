@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Alexis Ardouin CV</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="work_title">Développeur mobile</string>
+    <string name="name">Alexis Ardouin</string>
+    <string name="separator">-</string>
+    <string name="email">alexis.ardouin@gmail.com</string>
+    <string name="phone">06 61 72 45 64</string>
+    <string name="address">13 rue François Fresneau \nAppartement 311 \n44470 CARQUEFOU</string>
+
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titre Experience"
+            android:gravity="center_horizontal"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/title_text_size" />
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/default_text_size"
+            android:gravity="center"
+            android:text="De la date a la date" />
+
+        <ImageView
+            android:id="@+id/company_logo"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_below="@id/date"
+            android:src="@drawable/ic_launcher"
+            android:layout_margin="@dimen/margin_large" />
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_below="@id/title"
+            android:src="@drawable/ic_launcher"
+            android:textSize="@dimen/title_text_size"
+            android:text="company_name"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_large"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/company_location"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_component_size"
+            android:textSize="@dimen/default_text_size"
+            android:gravity="center"
+            android:text="Lieux de la boite"
+            android:layout_below="@id/company_logo"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@drawable/ic_action_place"
+            android:background="@drawable/menu_item_background"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/default_padding"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginRight="@dimen/margin_large"/>
+
+
+        <LinearLayout
+            android:id="@+id/paragraphe_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/company_location"
+            android:layout_margin="@dimen/margin_large"
+            />
+
+    </RelativeLayout>
+</ScrollView>

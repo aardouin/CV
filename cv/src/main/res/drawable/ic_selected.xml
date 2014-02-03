@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_unselected"
+        />
+
+    <item
+        android:left="@dimen/pagerindicator_border_double"
+        android:top="@dimen/pagerindicator_border_double"
+        android:right="@dimen/pagerindicator_border_double"
+        android:bottom="@dimen/pagerindicator_border_double">
+
+        <shape android:shape="oval"
+            >
+            <solid android:color="@color/blue" />
+            <size
+                android:width="@dimen/pagerindicator_border_inner"
+                android:height="@dimen/pagerindicator_border_inner" />
+        </shape>
+    </item>
+
+
+</layer-list>

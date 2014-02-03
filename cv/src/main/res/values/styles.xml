@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="blueText" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+</resources>
