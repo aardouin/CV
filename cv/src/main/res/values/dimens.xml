@@ -17,9 +17,10 @@
 
     <dimen name="default_text_size">15sp</dimen>
     <dimen name="margin_large">20dp</dimen>
-    <dimen name="pagerindicator_size">20dp</dimen>
+
+    <dimen name="pagerindicator_size">15dp</dimen>
     <dimen name="pagerindicator_border">2dp</dimen>
-    <dimen name="pagerindicator_border_inner">15dp</dimen>
+    <dimen name="pagerindicator_border_inner">10dp</dimen>
     <dimen name="pagerindicator_border_double">4dp</dimen>
 
 </resources>
