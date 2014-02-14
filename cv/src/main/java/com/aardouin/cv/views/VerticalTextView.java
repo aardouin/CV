@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.widget.TextView;
 
 /**
@@ -23,7 +22,7 @@ public class VerticalTextView extends TextView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(heightMeasureSpec, widthMeasureSpec);
-        setMeasuredDimension(getMeasuredHeight(),getMeasuredWidth());
+        setMeasuredDimension(getMeasuredHeight(), getMeasuredWidth());
     }
 
     @Override
@@ -35,7 +34,7 @@ public class VerticalTextView extends TextView {
         canvas.translate(0, getHeight());
         canvas.rotate(-90);
 
-        canvas.translate(getCompoundPaddingLeft(),getExtendedPaddingTop());
+        canvas.translate(getCompoundPaddingLeft(), getExtendedPaddingTop());
 
         getLayout().draw(canvas);
         canvas.restore();

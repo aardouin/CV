@@ -40,12 +40,12 @@ public class FormationAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View convertView, ViewGroup container) {
 
-        FormationCell formationCell = (FormationCell)convertView;
-        if( formationCell== null){
-            formationCell= new FormationCell(container.getContext());
+        FormationCell formationCell = (FormationCell) convertView;
+        if (formationCell == null) {
+            formationCell = new FormationCell(container.getContext());
         }
 
-        formationCell.setFormation((Formation)getItem(i));
+        formationCell.setFormation((Formation) getItem(i));
 
         return formationCell;
     }

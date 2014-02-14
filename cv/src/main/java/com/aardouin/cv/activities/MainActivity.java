@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     }
 
     private void bind() {
-        actionBar= (ActionBar) findViewById(R.id.action_bar);
+        actionBar = (ActionBar) findViewById(R.id.action_bar);
         actionBar.setListener(this);
         actionBar.bringToFront();
 
@@ -70,10 +70,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
 
     private void setCurrentItem(LeftDrawerAdapter.MenuItem item) {
 
-        if( !item.equals(currentItem)){
+        if (!item.equals(currentItem)) {
             Fragment fragment = getFragmentForItem(item);
 
-            if (fragment != null){
+            if (fragment != null) {
                 showFragment(fragment);
             }
             hideMenu();
@@ -85,53 +85,53 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
 
     private Fragment getFragmentForItem(LeftDrawerAdapter.MenuItem item) {
         Fragment fragment = null;
-        switch (item){
+        switch (item) {
             case Presentation:
-                fragment= getSupportFragmentManager().findFragmentByTag(PresentationFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(PresentationFragment.TAG);
+                if (fragment == null) {
                     fragment = new PresentationFragment();
                 }
                 break;
             case Formation:
-                fragment= getSupportFragmentManager().findFragmentByTag(FormationFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(FormationFragment.TAG);
+                if (fragment == null) {
                     fragment = new FormationFragment();
                 }
                 break;
             case Experiences:
-                fragment= getSupportFragmentManager().findFragmentByTag(ExperiencesFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(ExperiencesFragment.TAG);
+                if (fragment == null) {
                     fragment = new ExperiencesFragment();
                 }
                 break;
             case Competences:
-                fragment= getSupportFragmentManager().findFragmentByTag(CompetencesFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(CompetencesFragment.TAG);
+                if (fragment == null) {
                     fragment = new CompetencesFragment();
                 }
                 break;
             case Loisirs:
-                fragment= getSupportFragmentManager().findFragmentByTag(InteretsFragments.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(InteretsFragments.TAG);
+                if (fragment == null) {
                     fragment = new InteretsFragments();
                 }
                 break;
             case Contacts:
-                fragment= getSupportFragmentManager().findFragmentByTag(ContactsFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(ContactsFragment.TAG);
+                if (fragment == null) {
                     fragment = new ContactsFragment();
                 }
                 break;
             case PDF:
 
-                fragment= getSupportFragmentManager().findFragmentByTag(PDFFragments.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(PDFFragments.TAG);
+                if (fragment == null) {
                     fragment = new PDFFragments();
                 }
                 break;
             case Portfolio:
-                fragment= getSupportFragmentManager().findFragmentByTag(PortfolioFragment.TAG);
-                if(fragment == null){
+                fragment = getSupportFragmentManager().findFragmentByTag(PortfolioFragment.TAG);
+                if (fragment == null) {
                     fragment = new PortfolioFragment();
                 }
                 break;
@@ -142,7 +142,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     private void showFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        transaction.replace(contentFrame.getId(),fragment);
+        transaction.replace(contentFrame.getId(), fragment);
 
         transaction.commit();
     }
@@ -153,7 +153,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     }
 
     private void toggleMenu() {
-        if( drawerLayout.isDrawerOpen(leftDrawer))
+        if (drawerLayout.isDrawerOpen(leftDrawer))
             hideMenu();
         else
             showMenu();

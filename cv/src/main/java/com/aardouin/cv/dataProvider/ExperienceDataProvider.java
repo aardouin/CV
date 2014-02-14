@@ -12,20 +12,20 @@ import java.util.LinkedHashMap;
  */
 public class ExperienceDataProvider {
 
-    private static LinkedHashMap<Integer,Experience> experiences;
+    private static LinkedHashMap<Integer, Experience> experiences;
 
-    public static Integer[] getExperiencesId(){
+    public static Integer[] getExperiencesId() {
 
-        if( experiences == null){
+        if (experiences == null) {
             experiences = new LinkedHashMap<Integer, Experience>();
 
-            Experience omnium = new Experience(0,"Lead développeur mobile","Nantes - France","Depuis décembre 2011", "9 rue alfred Kastler 44300 Nantes",R.drawable.logo_omnium,Uri.parse("http://www.omnium-systems.com/"));
+            Experience omnium = new Experience(0, "Lead développeur mobile", "Nantes - France", "Depuis décembre 2011", "9 rue alfred Kastler 44300 Nantes", R.drawable.logo_omnium, Uri.parse("http://www.omnium-systems.com/"));
 
             omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. ");
             omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker");
             omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. ");
-            Experience autoEntrepreneur =new Experience(1,"Consultant informatique","Auto Entrepreneur","2010-2011");
-            Experience wedoit = new Experience(2, "Développeur stagiare", "Melbourne - Australie", "Avril 2009 - Juin 2009", "We-Do-It l12/200 Queen St Melbourne VIC 3000 Australie", R.drawable.logo_wedoit,Uri.parse("http://www.we-do-it.com/"));
+            Experience autoEntrepreneur = new Experience(1, "Consultant informatique", "Auto Entrepreneur", "2010-2011");
+            Experience wedoit = new Experience(2, "Développeur stagiare", "Melbourne - Australie", "Avril 2009 - Juin 2009", "We-Do-It l12/200 Queen St Melbourne VIC 3000 Australie", R.drawable.logo_wedoit, Uri.parse("http://www.we-do-it.com/"));
 
             addExperience(omnium);
             addExperience(autoEntrepreneur);
@@ -39,13 +39,13 @@ public class ExperienceDataProvider {
     }
 
     private static void addExperience(Experience experience) {
-        experiences.put(experience.getId(),experience);
+        experiences.put(experience.getId(), experience);
     }
 
     public static Experience getExperience(int id) {
-        if( experiences != null){
+        if (experiences != null) {
             return experiences.get(id);
-        }else{
+        } else {
             throw new RuntimeException("Need to call getExperiencesId() before getting an experience");
         }
     }

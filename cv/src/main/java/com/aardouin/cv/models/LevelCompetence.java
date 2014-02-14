@@ -14,7 +14,7 @@ public enum LevelCompetence {
         public float getPercentValue() {
             return 0.25f;
         }
-    },INTERMEDIAIRE {
+    }, INTERMEDIAIRE {
         @Override
         public String toReadable() {
             return "Intermédiaire";
@@ -24,7 +24,7 @@ public enum LevelCompetence {
         public float getPercentValue() {
             return 0.5f;
         }
-    },AVANCE {
+    }, AVANCE {
         @Override
         public String toReadable() {
             return "Avancé";
@@ -34,7 +34,7 @@ public enum LevelCompetence {
         public float getPercentValue() {
             return 0.75f;
         }
-    },EXPERT {
+    }, EXPERT {
         @Override
         public String toReadable() {
             return "Expert";
@@ -45,6 +45,8 @@ public enum LevelCompetence {
             return 1f;
         }
     };
-    public abstract String  toReadable();
+
+    public abstract String toReadable();
+
     public abstract float getPercentValue();
 }

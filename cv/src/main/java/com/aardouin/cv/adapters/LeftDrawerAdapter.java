@@ -1,25 +1,21 @@
 package com.aardouin.cv.adapters;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.aardouin.cv.R;
 
-import java.util.ArrayList;
-
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class LeftDrawerAdapter extends ArrayAdapter{
+public class LeftDrawerAdapter extends ArrayAdapter {
 
     public LeftDrawerAdapter(Context context) {
         super(context, R.layout.menu_item, R.id.menu_item_text, MenuItem.values());
     }
 
-    public enum MenuItem{
-        Presentation{
+    public enum MenuItem {
+        Presentation {
             @Override
             public String toString() {
                 return "Présentation";
@@ -33,7 +29,7 @@ public class LeftDrawerAdapter extends ArrayAdapter{
             }
 
         },
-        Competences{
+        Competences {
             @Override
             public String toString() {
                 return "Compétences";

@@ -1,14 +1,12 @@
 package com.aardouin.cv.libs.textview_justify;
 
-import com.aardouin.cv.libs.textview_justify.TextJustifyUtils;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.widget.TextView;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
 /*
  * 
@@ -28,66 +26,58 @@ import android.util.AttributeSet;
  * 
  */
 
-public class TextViewEx extends TextView 
-{       
+public class TextViewEx extends TextView {
     private Paint paint = new Paint();
 
-    private String [] blocks;
+    private String[] blocks;
     private float spaceOffset = 0;
     private float horizontalOffset = 0;
     private float verticalOffset = 0;
     private float horizontalFontOffset = 0;
     private float dirtyRegionWidth = 0;
     private boolean wrapEnabled = false;
-    
+
     private float strecthOffset;
     private float wrappedEdgeSpace;
     private String block;
     private String wrappedLine;
-    private String [] lineAsWords;
+    private String[] lineAsWords;
     private Object[] wrappedObj;
-    
+
     private Bitmap cache = null;
     private boolean cacheEnabled = false;
-    
-    public TextViewEx(Context context, AttributeSet attrs, int defStyle) 
-    {
+
+    public TextViewEx(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public TextViewEx(Context context, AttributeSet attrs) 
-    {
+    public TextViewEx(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public TextViewEx(Context context) 
-    {
+    public TextViewEx(Context context) {
         super(context);
     }
-    
+
     @Override
-    public void setDrawingCacheEnabled(boolean cacheEnabled) 
-    {
+    public void setDrawingCacheEnabled(boolean cacheEnabled) {
         this.cacheEnabled = cacheEnabled;
     }
 
-    public void setText(String st, boolean wrap)
-    {
+    public void setText(String st, boolean wrap) {
         wrapEnabled = wrap;
         super.setText(st);
     }
 
     @Override
-    protected void onDraw(Canvas canvas) 
-    { 
+    protected void onDraw(Canvas canvas) {
         // If wrap is disabled then,
         // request original onDraw
-        if(!wrapEnabled)
-        {
+        if (!wrapEnabled) {
             super.onDraw(canvas);
             return;
         }
-        
+
         // Active canas needs to be set
         // based on cacheEnabled
         Canvas activeCanvas = null;
@@ -96,83 +86,69 @@ public class TextViewEx extends TextView
         // whether cache is enabled
         if (cacheEnabled) {
 
-            if (cache != null) 
-            {
+            if (cache != null) {
                 // Draw to the OS provided canvas
                 // if the cache is not empty
                 canvas.drawBitmap(cache, 0, 0, paint);
                 return;
-            } 
-            else  
-            {
+            } else {
                 // Create a bitmap and set the activeCanvas
                 // to the one derived from the bitmap
-                cache = Bitmap.createBitmap(getWidth(), getHeight(), 
+                cache = Bitmap.createBitmap(getWidth(), getHeight(),
                         Config.ARGB_4444);
                 activeCanvas = new Canvas(cache);
             }
-        } 
-        else 
-        {
+        } else {
             // Active canvas is the OS
             // provided canvas
             activeCanvas = canvas;
         }
-        
+
         // Pull widget properties
         paint.setColor(getCurrentTextColor());
         paint.setTypeface(getTypeface());
         paint.setTextSize(getTextSize());
-                
+
         dirtyRegionWidth = getWidth();
         int maxLines = Integer.MAX_VALUE;
-		int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-		if (currentapiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN){
-			maxLines = getMaxLines();
-		}
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            maxLines = getMaxLines();
+        }
         int lines = 1;
         blocks = getText().toString().split("((?<=\n)|(?=\n))");
         verticalOffset = horizontalFontOffset = getLineHeight() - 0.5f; // Temp fix
-        spaceOffset = paint.measureText(" ");   
+        spaceOffset = paint.measureText(" ");
 
-        for(int i = 0; i < blocks.length && lines <= maxLines; i++)
-        {
+        for (int i = 0; i < blocks.length && lines <= maxLines; i++) {
             block = blocks[i];
             horizontalOffset = 0;
 
-            if(block.length() == 0)
-            {
+            if (block.length() == 0) {
                 continue;
-            }           
-            else if(block.equals("\n"))
-            {
-                verticalOffset += horizontalFontOffset; 
+            } else if (block.equals("\n")) {
+                verticalOffset += horizontalFontOffset;
                 continue;
             }
-            
+
             block = block.trim();
-            
-            if(block.length() == 0) 
-            {
+
+            if (block.length() == 0) {
                 continue;
             }
-            
+
             wrappedObj = TextJustifyUtils.createWrappedLine(block, paint, spaceOffset, dirtyRegionWidth);
-            
+
             wrappedLine = ((String) wrappedObj[0]);
             wrappedEdgeSpace = (Float) wrappedObj[1];
             lineAsWords = wrappedLine.split(" ");
-            strecthOffset = wrappedEdgeSpace != Float.MIN_VALUE ? wrappedEdgeSpace/(lineAsWords.length - 1) : 0;
-            
-            for(int j = 0; j < lineAsWords.length; j++)
-            {
+            strecthOffset = wrappedEdgeSpace != Float.MIN_VALUE ? wrappedEdgeSpace / (lineAsWords.length - 1) : 0;
+
+            for (int j = 0; j < lineAsWords.length; j++) {
                 String word = lineAsWords[j];
-                if (lines == maxLines && j == lineAsWords.length - 1) 
-                {
+                if (lines == maxLines && j == lineAsWords.length - 1) {
                     activeCanvas.drawText("...", horizontalOffset, verticalOffset, paint);
-                } 
-                else 
-                {
+                } else {
                     activeCanvas.drawText(word, horizontalOffset, verticalOffset, paint);
                 }
 
@@ -180,17 +156,15 @@ public class TextViewEx extends TextView
             }
 
             lines++;
-            
-            if(blocks[i].length() > 0)
-            {
-                blocks[i] = blocks[i].substring(wrappedLine.length());              
-                verticalOffset += blocks[i].length() > 0 ? horizontalFontOffset : 0;                
+
+            if (blocks[i].length() > 0) {
+                blocks[i] = blocks[i].substring(wrappedLine.length());
+                verticalOffset += blocks[i].length() > 0 ? horizontalFontOffset : 0;
                 i--;
             }
         }
-        
-        if (cacheEnabled)
-        {
+
+        if (cacheEnabled) {
             // Draw the cache onto the OS provided
             // canvas.
             canvas.drawBitmap(cache, 0, 0, paint);

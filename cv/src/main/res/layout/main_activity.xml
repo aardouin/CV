@@ -5,8 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    >
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/action_bar"
             android:clipToPadding="false"
-            android:layout_marginTop="@dimen/negative_padding_action_bar"/>
+            android:layout_marginTop="@dimen/negative_padding_action_bar" />
 
 
     </RelativeLayout>
@@ -40,7 +39,7 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/default_padding"
         android:background="@android:color/transparent"
-        android:paddingTop="@dimen/action_bar_height"/>
+        android:paddingTop="@dimen/action_bar_height" />
 
 
 </android.support.v4.widget.DrawerLayout>

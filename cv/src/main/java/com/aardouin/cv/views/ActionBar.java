@@ -4,10 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aardouin.cv.R;
@@ -31,8 +28,8 @@ public class ActionBar extends FrameLayout {
 
     public ActionBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.action_bar,this);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.action_bar, this);
         bind();
     }
 
@@ -41,13 +38,13 @@ public class ActionBar extends FrameLayout {
     }
 
     protected void bind() {
-        title= (TextView)findViewById(R.id.title);
+        title = (TextView) findViewById(R.id.title);
 
         menuButton = findViewById(R.id.menuButton);
         menuButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if( listener != null){
+                if (listener != null) {
                     listener.onMenuButtonClicked();
                 }
             }
@@ -66,7 +63,7 @@ public class ActionBar extends FrameLayout {
     }
 
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title.setText(title);
     }
 

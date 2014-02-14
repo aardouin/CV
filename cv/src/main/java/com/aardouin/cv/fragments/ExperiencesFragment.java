@@ -6,7 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import com.aardouin.cv.R;
 import com.aardouin.cv.adapters.ExperienceAdapter;
@@ -50,7 +49,7 @@ public class ExperiencesFragment extends Fragment implements ViewPager.OnPageCha
 
     @Override
     public void onPageSelected(int i) {
-            mIndicator.setPage(i);
+        mIndicator.setPage(i);
     }
 
     @Override

@@ -75,13 +75,13 @@ public class CategoryCompetencesAdapter extends BaseExpandableListAdapter {
         if (cell == null) {
             cell = new CompetenceCell(parent.getContext());
         }
-        cell.setCompetence((Competence) getChild(groupPosition, childPosition));
+        cell.setCompetence((Competence) getChild(groupPosition, childPosition) , ((CategoryCompetence)getGroup(groupPosition)).getColor());
         return cell;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
+        return true; // 3((Competence) getChild(groupPosition, childPosition)).getDetailCompetence() != null;
     }
 
     @Override

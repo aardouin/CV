@@ -11,14 +11,14 @@ import com.aardouin.cv.R;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class PortfolioFragment extends Fragment{
+public class PortfolioFragment extends Fragment {
 
-   public final static String TAG= "PORTFOLIO_FRAGMENT";
+    public final static String TAG = "PORTFOLIO_FRAGMENT";
     private View mRootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mRootView = inflater.inflate(R.layout.portfolio_container,container,false);
+        mRootView = inflater.inflate(R.layout.portfolio_container, container, false);
         return mRootView;
     }
 

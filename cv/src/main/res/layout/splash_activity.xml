@@ -1,10 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
->
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,8 +11,8 @@
         android:layout_centerInParent="true"
         android:text="@string/name"
         android:drawableTop="@drawable/ic_launcher"
-        style="@style/blueText"
-        />
+        style="@style/blueText" />
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -22,5 +20,5 @@
         android:layout_marginBottom="50dp"
         android:text="@string/work_title"
         android:gravity="center"
-        style="@style/blueText"/>
+        style="@style/blueText" />
 </RelativeLayout>

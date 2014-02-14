@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="@dimen/formation_cell_height"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/formation_cell_height"
     android:background="@color/back_secondary">
 
     <com.aardouin.cv.views.VerticalTextView
@@ -13,16 +14,16 @@
         android:gravity="center_horizontal"
         android:background="@color/blue"
         android:textColor="@android:color/white"
-        android:layout_marginRight="@dimen/default_margin"
-        />
+        android:layout_marginRight="@dimen/default_margin" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/date"
         android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:layout_centerVertical="true"
-        >
+        android:layout_centerVertical="true">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
             android:text="FORMATION"
             android:gravity="center_vertical"
             android:textColor="@color/blue"
-            android:textSize="@dimen/title_text_size"/>
+            android:textSize="@dimen/title_text_size" />
 
         <TextView
             android:id="@+id/details"
@@ -41,7 +42,7 @@
             android:text="details"
             android:gravity="center_vertical"
             android:textColor="@color/light_blue"
-            android:textSize="@dimen/default_text_size"/>
+            android:textSize="@dimen/default_text_size" />
 
         <TextView
             android:id="@+id/location"
@@ -51,7 +52,7 @@
             android:text="location"
             android:gravity="center_vertical"
             android:textColor="@color/light_blue"
-            android:textSize="@dimen/default_text_size"/>
+            android:textSize="@dimen/default_text_size" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.aardouin.cv.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -15,7 +16,8 @@ import com.aardouin.cv.models.Competence;
 public class CompetenceCell extends FrameLayout {
 
     private TextView text;
-    private TextView level;
+    private LevelView level;
+    private View infoButton;
 
     public CompetenceCell(Context context) {
         this(context, null);
@@ -36,13 +38,17 @@ public class CompetenceCell extends FrameLayout {
     private void bind() {
 
         this.text = (TextView) findViewById(R.id.text);
-        this.level = (TextView) findViewById(R.id.level);
+        this.level = (LevelView) findViewById(R.id.level);
+        this.infoButton = findViewById(R.id.info_button);
 
     }
 
 
-    public void setCompetence(Competence competence) {
+    public void setCompetence(Competence competence,int color) {
         this.text.setText(competence.getName());
-        this.level.setText(competence.getLevel().toReadable());
+        this.level.setLevel(competence.getLevel(),color);
+        this.infoButton.setVisibility(competence.getDetailCompetence() != null ? View.VISIBLE : View.GONE);
     }
+
+
 }

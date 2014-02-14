@@ -2,8 +2,7 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/ic_unselected"
-        />
+    <item android:drawable="@drawable/ic_unselected" />
 
     <item
         android:left="@dimen/pagerindicator_border_double"
@@ -11,8 +10,7 @@
         android:right="@dimen/pagerindicator_border_double"
         android:bottom="@dimen/pagerindicator_border_double">
 
-        <shape android:shape="oval"
-            >
+        <shape android:shape="oval">
             <solid android:color="@color/blue" />
             <size
                 android:width="@dimen/pagerindicator_border_inner"

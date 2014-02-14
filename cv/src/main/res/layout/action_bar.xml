@@ -17,8 +17,7 @@
         android:textSize="20sp"
         android:singleLine="true"
         android:text="@string/name"
-        android:background="@drawable/bottom_bordered"
-        />
+        android:background="@drawable/bottom_bordered" />
 
     <View
         android:id="@+id/menuButton"
@@ -28,8 +27,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:padding="@dimen/default_padding"
         android:background="@drawable/menu_circle"
-        android:src="@drawable/ic_launcher"
-        />
+        android:src="@drawable/ic_launcher" />
 
 
 </RelativeLayout>

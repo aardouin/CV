@@ -40,5 +40,6 @@ public class CategoryCompetenceCell extends FrameLayout {
 
     public void setCategoryCompetence(CategoryCompetence categoryCompetence) {
         this.text.setText(categoryCompetence.getName());
+        this.text.setBackgroundColor(getResources().getColor(categoryCompetence.getColor()));
     }
 }

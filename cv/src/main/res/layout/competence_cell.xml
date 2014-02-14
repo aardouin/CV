@@ -3,14 +3,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/default_padding">
+    android:layout_gravity="center_vertical"
+    android:paddingLeft="@dimen/competence_cell_padding"
+    android:paddingRight="@dimen/competence_cell_padding"
+    android:paddingTop="@dimen/default_padding"
+    android:paddingBottom="@dimen/default_padding">
 
-    <TextView
+    <com.aardouin.cv.views.LevelView
         android:id="@+id/level"
         android:layout_width="@dimen/default_component_size"
         android:layout_height="@dimen/default_component_size"
-        android:gravity="center"
-        android:background="@drawable/circle" />
+        android:layout_centerVertical="true"
+        android:padding="@dimen/default_padding" />
 
     <TextView
         android:id="@+id/text"
@@ -19,5 +23,14 @@
         android:layout_toRightOf="@id/level"
         android:layout_marginLeft="20dp"
         android:gravity="center_vertical"
+        android:layout_centerVertical="true"
         android:text="NAME" />
+
+    <ImageView
+        android:id="@+id/info_button"
+        android:layout_width="@dimen/info_size"
+        android:layout_height="@dimen/info_size"
+        android:src="@drawable/info_circled"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
 </RelativeLayout>

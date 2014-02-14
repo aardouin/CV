@@ -14,7 +14,7 @@ import com.aardouin.cv.fragments.ExperienceItemFragment;
 public class ExperienceAdapter extends FragmentStatePagerAdapter {
     private final Integer[] experiences;
 
-    public ExperienceAdapter(FragmentManager manager,Integer[] experiences) {
+    public ExperienceAdapter(FragmentManager manager, Integer[] experiences) {
         super(manager);
         this.experiences = experiences;
     }

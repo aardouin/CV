@@ -41,7 +41,7 @@ public class Experience {
         return id;
     }
 
-    public Experience(int id, String title, String location, String date, String adress, int logo,Uri website) {
+    public Experience(int id, String title, String location, String date, String adress, int logo, Uri website) {
         this.id = id;
         this.title = title;
         this.location = location;
@@ -54,7 +54,7 @@ public class Experience {
 
 
     public Experience(int id, String title, String name, String date) {
-        this(id,title,null,date,null,-1,null);
+        this(id, title, null, date, null, -1, null);
         this.name = name;
     }
 
@@ -75,7 +75,7 @@ public class Experience {
         return paragraphes;
     }
 
-    public void addParagraphe(String paragraphe){
+    public void addParagraphe(String paragraphe) {
         paragraphes.add(paragraphe);
     }
 }

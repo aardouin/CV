@@ -9,7 +9,7 @@
     <dimen name="default_margin">5dp</dimen>
     <dimen name="default_padding">5dp</dimen>
     <dimen name="default_border">2dp</dimen>
-    <dimen name="default_border_negative"> -2dp</dimen>
+    <dimen name="default_border_negative">-2dp</dimen>
 
     <!--Formations-->
     <dimen name="formation_cell_height">120dp</dimen>
@@ -22,5 +22,10 @@
     <dimen name="pagerindicator_border">2dp</dimen>
     <dimen name="pagerindicator_border_inner">10dp</dimen>
     <dimen name="pagerindicator_border_double">4dp</dimen>
+
+
+    <dimen name="level_border">4dp</dimen>
+    <dimen name="info_size">25dp</dimen>
+    <dimen name="competence_cell_padding">20dp</dimen>
 
 </resources>

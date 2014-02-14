@@ -6,7 +6,6 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-
 import com.aardouin.cv.R;
 
 import java.util.ArrayList;
@@ -33,9 +32,9 @@ public class PagerIndicator extends LinearLayout {
     public void setTotalCount(int count) {
         this.removeAllViews();
         indicators.clear();
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.pagerindicator_size),getResources().getDimensionPixelSize(R.dimen.pagerindicator_size));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.pagerindicator_size), getResources().getDimensionPixelSize(R.dimen.pagerindicator_size));
         int margin = getResources().getDimensionPixelSize(R.dimen.default_margin);
-        params.setMargins(margin,margin,margin,margin);
+        params.setMargins(margin, margin, margin, margin);
         for (int i = 0; i != count; i++) {
             ImageView tmpView = new ImageView(getContext());
 
