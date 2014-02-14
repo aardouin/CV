@@ -1,7 +1,6 @@
 package com.aardouin.cv.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.aardouin.cv.views.PagerIndicator;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class ExperiencesFragment extends Fragment implements ViewPager.OnPageChangeListener {
+public class ExperiencesFragment extends AbstractContentFragment implements ViewPager.OnPageChangeListener {
 
     public final static String TAG = "EXPERIENCES_FRAGMENT";
 

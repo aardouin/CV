@@ -3,7 +3,6 @@ package com.aardouin.cv.fragments;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import com.aardouin.cv.R;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class ContactsFragment extends Fragment {
+public class ContactsFragment extends AbstractContentFragment {
 
     public final static String TAG = "CONTACTS_FRAGMENT";
     private View mRootView;

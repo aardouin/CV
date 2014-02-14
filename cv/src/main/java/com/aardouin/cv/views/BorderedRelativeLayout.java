@@ -40,7 +40,6 @@ public class BorderedRelativeLayout extends RelativeLayout{
         super.draw(canvas);
 
         if( color != -1){
-
             mPaint.setColor(getResources().getColor(color));
             mPaint.setStrokeWidth(borderWidth);
             mPaint.setStyle(Paint.Style.STROKE);

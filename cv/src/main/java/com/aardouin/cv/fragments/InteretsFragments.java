@@ -1,7 +1,6 @@
 package com.aardouin.cv.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import com.aardouin.cv.R;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class InteretsFragments extends Fragment {
+public class InteretsFragments extends AbstractContentFragment {
 
     public final static String TAG = "INTERETS_FRAGMENT";
     private View mRootView;

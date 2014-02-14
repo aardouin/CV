@@ -1,7 +1,6 @@
 package com.aardouin.cv.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import com.aardouin.cv.views.BorderedRelativeLayout;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class CompetencesFragment extends Fragment {
+public class CompetencesFragment extends AbstractContentFragment {
 
     public final static String TAG = "COMPETENCES_FRAGMENT";
     private View mRootView;
@@ -92,4 +91,12 @@ public class CompetencesFragment extends Fragment {
         popupContainer.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public boolean doBack() {
+        if( View.VISIBLE == popupContainer.getVisibility()){
+            hidePopup();
+            return true;
+        }
+        return false;
+    }
 }

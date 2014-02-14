@@ -1,7 +1,6 @@
 package com.aardouin.cv.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import com.aardouin.cv.dataProvider.FormationDataProvider;
 /**
  * Created by alexisardouin on 01/02/14.
  */
-public class FormationFragment extends Fragment {
+public class FormationFragment extends AbstractContentFragment {
     public static final String TAG = "FORMATION_FRAGMENT";
     private ListView mListView;
 

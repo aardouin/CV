@@ -28,7 +28,8 @@
                 android:id="@+id/popup_title"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/default_component_size"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textStyle="bold"/>
             <com.aardouin.cv.libs.textview_justify.TextViewEx
                 android:id="@+id/popup_text"
                 android:layout_width="match_parent"

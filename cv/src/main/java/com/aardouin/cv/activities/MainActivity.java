@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.aardouin.cv.R;
 import com.aardouin.cv.adapters.LeftDrawerAdapter;
+import com.aardouin.cv.fragments.AbstractContentFragment;
 import com.aardouin.cv.fragments.CompetencesFragment;
 import com.aardouin.cv.fragments.ContactsFragment;
 import com.aardouin.cv.fragments.ExperiencesFragment;
@@ -34,6 +36,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     private FrameLayout contentFrame;
     private LeftDrawerAdapter leftDrawerAdapter;
     private LeftDrawerAdapter.MenuItem currentItem;
+    private long lastBackTimeStamp = -1 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +67,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
             }
         });
 
-        //drawerLayout.setScrimColor(Color.TRANSPARENT);
         contentFrame = (FrameLayout) findViewById(R.id.content_frame);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AbstractContentFragment currentFragment = ((AbstractContentFragment) getSupportFragmentManager().findFragmentByTag(currentItem.name()));
+        if(currentFragment ==  null || !currentFragment.doBack()){
+            long timestampNow = System.currentTimeMillis() / 1000;
+
+            if( timestampNow - lastBackTimeStamp > 3){
+                lastBackTimeStamp = timestampNow;
+                Toast.makeText(getBaseContext(),"Appuer de nouveau pour quitter",Toast.LENGTH_LONG).show();
+            }else{
+                super.onBackPressed();
+            }
+        }
     }
 
     private void setCurrentItem(LeftDrawerAdapter.MenuItem item) {
@@ -74,7 +91,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
             Fragment fragment = getFragmentForItem(item);
 
             if (fragment != null) {
-                showFragment(fragment);
+                showFragment(fragment,item);
             }
             hideMenu();
             this.currentItem = item;
@@ -85,64 +102,43 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
 
     private Fragment getFragmentForItem(LeftDrawerAdapter.MenuItem item) {
         Fragment fragment = null;
-        switch (item) {
-            case Presentation:
-                fragment = getSupportFragmentManager().findFragmentByTag(PresentationFragment.TAG);
-                if (fragment == null) {
-                    fragment = new PresentationFragment();
-                }
-                break;
-            case Formation:
-                fragment = getSupportFragmentManager().findFragmentByTag(FormationFragment.TAG);
-                if (fragment == null) {
-                    fragment = new FormationFragment();
-                }
-                break;
-            case Experiences:
-                fragment = getSupportFragmentManager().findFragmentByTag(ExperiencesFragment.TAG);
-                if (fragment == null) {
-                    fragment = new ExperiencesFragment();
-                }
-                break;
-            case Competences:
-                fragment = getSupportFragmentManager().findFragmentByTag(CompetencesFragment.TAG);
-                if (fragment == null) {
-                    fragment = new CompetencesFragment();
-                }
-                break;
-            case Loisirs:
-                fragment = getSupportFragmentManager().findFragmentByTag(InteretsFragments.TAG);
-                if (fragment == null) {
-                    fragment = new InteretsFragments();
-                }
-                break;
-            case Contacts:
-                fragment = getSupportFragmentManager().findFragmentByTag(ContactsFragment.TAG);
-                if (fragment == null) {
-                    fragment = new ContactsFragment();
-                }
-                break;
-            case PDF:
 
-                fragment = getSupportFragmentManager().findFragmentByTag(PDFFragments.TAG);
-                if (fragment == null) {
-                    fragment = new PDFFragments();
-                }
-                break;
-            case Portfolio:
-                fragment = getSupportFragmentManager().findFragmentByTag(PortfolioFragment.TAG);
-                if (fragment == null) {
-                    fragment = new PortfolioFragment();
-                }
-                break;
+        fragment = getSupportFragmentManager().findFragmentByTag(item.name());
+        if (fragment == null) {
+            switch (item) {
+                case Presentation:
+                        fragment = new PresentationFragment();
+                    break;
+                case Formation:
+                        fragment = new FormationFragment();
+                    break;
+                case Experiences:
+                        fragment = new ExperiencesFragment();
+                    break;
+                case Competences:
+                        fragment = new CompetencesFragment();
+                    break;
+                case Loisirs:
+                        fragment = new InteretsFragments();
+                    break;
+                case Contacts:
+                        fragment = new ContactsFragment();
+                    break;
+                case PDF:
+                        fragment = new PDFFragments();
+                    break;
+                case Portfolio:
+                        fragment = new PortfolioFragment();
+                    break;
+            }
         }
         return fragment;
     }
 
-    private void showFragment(Fragment fragment) {
+    private void showFragment(Fragment fragment, LeftDrawerAdapter.MenuItem item) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        transaction.replace(contentFrame.getId(), fragment);
+        transaction.replace(contentFrame.getId(), fragment,item.name());
 
         transaction.commit();
     }
