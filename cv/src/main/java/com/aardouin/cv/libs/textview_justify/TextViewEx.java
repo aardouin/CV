@@ -166,7 +166,7 @@ public class TextViewEx extends TextView {
 
                 String word = lineAsWords[j];
 
-                if (spannableString != null) {
+                if (spannableString != null && spans.length > 0) {
                     paint.setColor(getCurrentTextColor());
                     for (URLSpan span : spans) {
                         if (charCount >= spannableString.getSpanStart(span) && charCount + word.length() <= spannableString.getSpanEnd(span)) {
