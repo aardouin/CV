@@ -2,10 +2,48 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/default_padding"
+    android:paddingBottom="@dimen/default_padding"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
 
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="@dimen/default_component_size"
+        android:text="Bienvenue dans mon application CV"
+        android:textAppearance="@style/blueText"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <com.aardouin.cv.libs.textview_justify.TextViewEx
+        android:id="@+id/intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome" />
+
+
+    <com.aardouin.cv.libs.textview_justify.TextViewEx
+        android:id="@+id/part1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intro"
+        android:layout_marginTop="@dimen/paragraphe_separator" />
+
+    <com.aardouin.cv.libs.textview_justify.TextViewEx
+        android:id="@+id/part2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part1"
+        android:layout_marginTop="@dimen/paragraphe_separator" />
+
+
+    <com.aardouin.cv.libs.textview_justify.TextViewEx
+        android:id="@+id/conclusion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/part2"
+        android:layout_marginTop="@dimen/paragraphe_separator" />
 
 </RelativeLayout>

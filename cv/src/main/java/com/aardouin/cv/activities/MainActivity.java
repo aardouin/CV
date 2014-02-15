@@ -39,13 +39,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     private long lastBackTimeStamp = -1 ;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        leftDrawer.setItemChecked(0, true);
+        setCurrentItem(LeftDrawerAdapter.MenuItem.Presentation);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         bind();
-
-
-        leftDrawer.setItemChecked(0, true);
     }
 
     private void bind() {
