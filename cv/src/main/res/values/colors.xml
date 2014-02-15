@@ -7,9 +7,9 @@
     <color name="level_back">#AAAAAA</color>
     <color name="level_front">#ff3388b2</color>
     <color name="dark_grey">#AAAAAA</color>
-    <color name="comp_green">#ff30ba38</color>
+    <color name="comp_green">#ff2d9e35</color>
     <color name="comp_red">#ffba3d33</color>
     <color name="comp_orange">#ffba7326</color>
-    <color name="comp_yellow">#ffecea32</color>
+    <color name="comp_yellow">#ffdbd93b</color>
     <color name="transparent_black">#80000000</color>
 </resources>

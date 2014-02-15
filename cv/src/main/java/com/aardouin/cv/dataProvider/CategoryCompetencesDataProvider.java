@@ -30,7 +30,7 @@ public class CategoryCompetencesDataProvider {
             analyse.addCompetence(new Competence("UML", LevelCompetence.AVANCE));
             analyse.addCompetence(new Competence("UML", LevelCompetence.AVANCE));
             categoryCompetenceArrayList.add(analyse);
-            CategoryCompetence developementBackEnd = new CategoryCompetence("Développement serveur",R.color.comp_red);
+            CategoryCompetence developementBackEnd = new CategoryCompetence("Développement serveur",R.color.comp_orange);
             developementBackEnd.addCompetence(new Competence("Ruby on rails", LevelCompetence.AVANCE));
             developementBackEnd.addCompetence(new Competence("EJS", LevelCompetence.AVANCE));
             developementBackEnd.addCompetence(new Competence("UML", LevelCompetence.AVANCE));

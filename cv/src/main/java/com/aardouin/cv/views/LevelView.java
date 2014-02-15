@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.aardouin.cv.R;
 import com.aardouin.cv.models.LevelCompetence;
+import com.aardouin.cv.utils.Utils;
 
 /**
  * Created by alexisardouin on 14/02/14.
@@ -23,6 +24,7 @@ public class LevelView extends View {
     private float angleOrigin;
     private float radius;
     private int color;
+    private int darkenedColor;
 
     public LevelView(Context context) {
         this(context, null);
@@ -65,17 +67,40 @@ public class LevelView extends View {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (level != null) {
+            mPaint.setAntiAlias(true);
             mPaint.setStrokeWidth(getResources().getDimension(R.dimen.level_border));
+
 
             //draw background circle
             mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
             mPaint.setColor(getResources().getColor(R.color.level_back));
             canvas.drawArc(getFloatBounds(), angleOrigin, 360f, false, mPaint);
 
-            //draw colored arc
+
+            //draw colored outer border arc
             mPaint.setStyle(Paint.Style.STROKE);
+            darkenedColor = Utils.darkenColor(getResources().getColor(color));
+            mPaint.setColor(darkenedColor);
+            //canvas.drawArc(mBoundsFloat, angleOrigin, 360f * level.getPercentValue(), false, mPaint);
+
+            mPath.reset();
+            mPath.addArc(mBoundsFloat, angleOrigin, 360f * level.getPercentValue());
+
+            canvas.drawPath(mPath,mPaint);
+
+            int outerBorderSize = 2;
             mPaint.setColor(getResources().getColor(color));
-            canvas.drawArc(getFloatBounds(), angleOrigin, 360f * level.getPercentValue(), false, mPaint);
+            mPaint.setStrokeWidth(mPaint.getStrokeWidth()-(outerBorderSize*2));
+
+            mPath.reset();
+            mPath.addArc(mBoundsFloat, angleOrigin +outerBorderSize, (360f * level.getPercentValue() )-(outerBorderSize*2));
+
+            mBoundsFloat.set(mBoundsFloat.left+outerBorderSize,mBoundsFloat.top+outerBorderSize,mBoundsFloat.right+outerBorderSize,mBoundsFloat.bottom+outerBorderSize);
+
+            canvas.drawPath(mPath,mPaint);
+
+
+
         }
 
     }
