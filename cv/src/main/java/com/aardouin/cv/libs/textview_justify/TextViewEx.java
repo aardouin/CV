@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.URLSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -69,6 +72,11 @@ public class TextViewEx extends TextView {
         super.setText(st);
     }
 
+    public void setText(Spanned st, boolean wrap) {
+        wrapEnabled = wrap;
+        super.setText(st);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         // If wrap is disabled then,
@@ -109,6 +117,9 @@ public class TextViewEx extends TextView {
         paint.setTypeface(getTypeface());
         paint.setTextSize(getTextSize());
 
+
+        int charCount = 0;
+
         dirtyRegionWidth = getWidth();
         int maxLines = Integer.MAX_VALUE;
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
@@ -144,14 +155,36 @@ public class TextViewEx extends TextView {
             lineAsWords = wrappedLine.split(" ");
             strecthOffset = wrappedEdgeSpace != Float.MIN_VALUE ? wrappedEdgeSpace / (lineAsWords.length - 1) : 0;
 
+
+            SpannableString spannableString = null;
+            URLSpan[] spans = null;
+            if (getText() instanceof SpannableString) {
+                spannableString = (SpannableString) getText();
+                spans = ((SpannableString) getText()).getSpans(charCount, getText().length(), URLSpan.class);
+            }
             for (int j = 0; j < lineAsWords.length; j++) {
+
                 String word = lineAsWords[j];
+
+                if (spannableString != null) {
+                    paint.setColor(getCurrentTextColor());
+                    for (URLSpan span : spans) {
+                        if (charCount >= spannableString.getSpanStart(span) && charCount + word.length() <= spannableString.getSpanEnd(span)) {
+                            paint.setColor(getLinkTextColors().getDefaultColor());
+                            break;
+                        }
+                    }
+
+                }
+
+
                 if (lines == maxLines && j == lineAsWords.length - 1) {
                     activeCanvas.drawText("...", horizontalOffset, verticalOffset, paint);
                 } else {
                     activeCanvas.drawText(word, horizontalOffset, verticalOffset, paint);
                 }
 
+                charCount += word.length() + 1;
                 horizontalOffset += paint.measureText(word) + spaceOffset + strecthOffset;
             }
 

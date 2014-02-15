@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingTop="@dimen/margin_large">
 
         <TextView
@@ -22,10 +23,8 @@
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:layout_centerHorizontal="true"
             android:textSize="@dimen/default_text_size"
             android:gravity="center"
             tools:text="De la date a la date" />
@@ -34,19 +33,18 @@
             android:id="@+id/company_logo"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:layout_below="@id/date"
-            android:src="@drawable/ic_launcher"
+            tools:src="@drawable/ic_launcher"
+            android:scaleType="centerInside"
             android:layout_margin="@dimen/margin_large" />
 
         <TextView
             android:id="@+id/company_name"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_below="@id/title"
+            android:layout_height="@dimen/default_component_size"
             android:src="@drawable/ic_launcher"
             android:textSize="@dimen/title_text_size"
             android:gravity="center"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_margin="@dimen/default_margin"
             android:visibility="gone"
             tools:text="company_name" />
 
@@ -56,8 +54,6 @@
             android:layout_height="@dimen/default_component_size"
             android:textSize="@dimen/default_text_size"
             android:gravity="center"
-            android:layout_below="@id/company_logo"
-            android:layout_alignParentRight="true"
             android:drawableLeft="@drawable/ic_action_place"
             android:background="@drawable/menu_item_background"
             android:textColor="@android:color/white"
@@ -72,9 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/company_location"
             android:layout_margin="@dimen/margin_large"
             android:paddingBottom="20dp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

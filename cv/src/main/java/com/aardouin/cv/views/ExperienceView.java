@@ -3,6 +3,9 @@ package com.aardouin.cv.views;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,7 +88,13 @@ public class ExperienceView extends FrameLayout {
         for (int i = 0; i != mExperience.getParagraphes().size(); i++) {
 
             TextViewEx textView = new TextViewEx(getContext());
-            textView.setText(mExperience.getParagraphes().get(i), true);
+            textView.setLinksClickable(true);
+            textView.setLinkTextColor(getResources().getColor(R.color.blue));
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+
+            Spanned spanned = Html.fromHtml(mExperience.getParagraphes().get(i));
+            textView.setText(spanned, true);
+
             paragraphe_container.addView(textView);
 
             if (i < mExperience.getParagraphes().size() - 1) {
