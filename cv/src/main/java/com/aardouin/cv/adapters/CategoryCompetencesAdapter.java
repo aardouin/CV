@@ -38,7 +38,7 @@ public class CategoryCompetencesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return ((CategoryCompetence) categoriesCompetence.get(groupPosition)).getCompetences().get(childPosition);
+        return categoriesCompetence.get(groupPosition).getCompetences().get(childPosition);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class CategoryCompetencesAdapter extends BaseExpandableListAdapter {
         if (cell == null) {
             cell = new CompetenceCell(parent.getContext());
         }
-        cell.setCompetence((Competence) getChild(groupPosition, childPosition) , ((CategoryCompetence)getGroup(groupPosition)).getColor());
+        cell.setCompetence((Competence) getChild(groupPosition, childPosition), ((CategoryCompetence) getGroup(groupPosition)).getColor());
         return cell;
     }
 

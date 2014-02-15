@@ -14,7 +14,7 @@ import com.aardouin.cv.R;
  */
 public class ActionBar extends FrameLayout {
 
-    ActionBarListener listener;
+    private ActionBarListener listener;
     private TextView title;
     private View menuButton;
 
@@ -37,7 +37,7 @@ public class ActionBar extends FrameLayout {
         this.listener = listener;
     }
 
-    protected void bind() {
+    private void bind() {
         title = (TextView) findViewById(R.id.title);
 
         menuButton = findViewById(R.id.menuButton);

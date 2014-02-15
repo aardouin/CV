@@ -152,15 +152,15 @@ public class TextJustifyUtils {
         String[] str = s.split("\\s"); //regex
         StringBuilder smb = new StringBuilder(); //save memory
         smb.append(SYSTEM_NEWLINE);
-        for (int x = 0; x < str.length; x++) {
-            float length = p.measureText(str[x]);
+        for (String aStr : str) {
+            float length = p.measureText(aStr);
             String[] pieces = smb.toString().split(SYSTEM_NEWLINE);
             try {
                 if (p.measureText(pieces[pieces.length - 1]) + length > width)
                     smb.append(SYSTEM_NEWLINE);
             } catch (Exception e) {
             }
-            smb.append(str[x] + " ");
+            smb.append(aStr + " ");
         }
         return smb.toString().replaceFirst(SYSTEM_NEWLINE, "");
     }
@@ -190,8 +190,7 @@ public class TextJustifyUtils {
             lessThan = p.measureText(holder_string) + lessThan - p.measureText(" ");
             current++;
         }
-        String cleaned = s.replaceAll(holder_string, " ");
-        return cleaned;
+        return s.replaceAll(holder_string, " ");
     }
 
     private static String justify(String s, float width, Paint p) {

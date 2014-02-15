@@ -38,7 +38,7 @@ public class LeftDrawerAdapter extends ArrayAdapter {
         Loisirs,
         Portfolio,
         PDF,
-        Contacts;
+        Contacts
 
 
     }
