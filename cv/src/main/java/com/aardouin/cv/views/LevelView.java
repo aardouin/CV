@@ -88,14 +88,16 @@ public class LevelView extends View {
 
             canvas.drawPath(mPath,mPaint);
 
-            int outerBorderSize = 2;
+            float outerBorderSize = getResources().getDimension(R.dimen.level_outer_border);
             mPaint.setColor(getResources().getColor(color));
             mPaint.setStrokeWidth(mPaint.getStrokeWidth()-(outerBorderSize*2));
 
-            mPath.reset();
-            mPath.addArc(mBoundsFloat, angleOrigin +outerBorderSize, (360f * level.getPercentValue() )-(outerBorderSize*2));
+            if(level.getPercentValue()<1){
+                //draw  lighter color inside and adjust arc for start and end borders
+                mPath.reset();
+                mPath.addArc(mBoundsFloat, angleOrigin +(2*outerBorderSize), (360f * level.getPercentValue() )-(outerBorderSize*2*2));
+            }
 
-            mBoundsFloat.set(mBoundsFloat.left+outerBorderSize,mBoundsFloat.top+outerBorderSize,mBoundsFloat.right+outerBorderSize,mBoundsFloat.bottom+outerBorderSize);
 
             canvas.drawPath(mPath,mPaint);
 

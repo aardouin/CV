@@ -24,8 +24,9 @@
     <dimen name="pagerindicator_border_double">4dp</dimen>
 
 
-    <dimen name="level_border">4dp</dimen>
+    <dimen name="level_border">6dp</dimen>
     <dimen name="info_size">25dp</dimen>
     <dimen name="competence_cell_padding">20dp</dimen>
+    <dimen name="level_outer_border">1dp</dimen>
 
 </resources>
