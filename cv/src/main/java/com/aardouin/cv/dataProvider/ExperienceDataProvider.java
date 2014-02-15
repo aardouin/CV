@@ -21,7 +21,7 @@ public class ExperienceDataProvider {
 
             Experience omnium = new Experience(0, "Lead développeur mobile", "Nantes - France", "Depuis décembre 2011", "9 rue alfred Kastler 44300 Nantes", R.drawable.logo_omnium, Uri.parse("http://www.omnium-systems.com/"));
 
-            omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. ");
+            omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.             omnium.addParagraphe(\"Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. ");
             omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker");
             omnium.addParagraphe("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. ");
             Experience autoEntrepreneur = new Experience(1, "Consultant informatique", "Auto Entrepreneur", "2010-2011");

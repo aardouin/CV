@@ -39,7 +39,8 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/default_padding"
         android:background="@android:color/transparent"
-        android:paddingTop="@dimen/action_bar_height" />
+        android:paddingTop="@dimen/action_bar_height"
+        android:scrollbars="none" />
 
 
 </android.support.v4.widget.DrawerLayout>

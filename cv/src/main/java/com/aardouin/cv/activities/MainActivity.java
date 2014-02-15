@@ -30,6 +30,7 @@ import com.aardouin.cv.views.ActionBar;
 public class MainActivity extends FragmentActivity implements ActionBar.ActionBarListener {
 
 
+    public static final String CURRENT_ITEM_KEY = "CURRENT_ITEM_KEY";
     private ActionBar actionBar;
     private DrawerLayout drawerLayout;
     private ListView leftDrawer;
@@ -42,8 +43,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     protected void onStart() {
         super.onStart();
 
-        leftDrawer.setItemChecked(0, true);
-        setCurrentItem(LeftDrawerAdapter.MenuItem.Presentation);
+
+        if (currentItem == null) {
+            setCurrentItem(LeftDrawerAdapter.MenuItem.Presentation);
+        }
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(CURRENT_ITEM_KEY, currentItem.name());
     }
 
     @Override
@@ -51,6 +61,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         bind();
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(CURRENT_ITEM_KEY)) {
+                currentItem = LeftDrawerAdapter.MenuItem.valueOf(savedInstanceState.getString(CURRENT_ITEM_KEY));
+            }
+        }
+
     }
 
     private void bind() {

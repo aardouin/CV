@@ -73,7 +73,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@id/company_location"
-            android:layout_margin="@dimen/margin_large" />
+            android:layout_margin="@dimen/margin_large"
+            android:paddingBottom="20dp" />
 
     </RelativeLayout>
 </ScrollView>
