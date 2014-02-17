@@ -7,16 +7,16 @@ public class Competence {
 
     private String name;
     private LevelCompetence level;
-    private String detailCompetence;
+    private String[] detailsCompetence;
 
     public Competence(String name, LevelCompetence level) {
         this(name, level, null);
     }
 
-    public Competence(String name, LevelCompetence level, String detailCompetence) {
+    public Competence(String name, LevelCompetence level, String[] detailCompetence) {
         this.name = name;
         this.level = level;
-        this.detailCompetence = detailCompetence;
+        this.detailsCompetence = detailCompetence;
     }
 
     public String getName() {
@@ -27,7 +27,7 @@ public class Competence {
         return level;
     }
 
-    public String getDetailCompetence() {
-        return detailCompetence;
+    public String[] getDetailsCompetence() {
+        return detailsCompetence;
     }
 }

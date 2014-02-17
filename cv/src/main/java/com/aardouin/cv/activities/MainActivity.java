@@ -19,8 +19,6 @@ import com.aardouin.cv.fragments.ContactsFragment;
 import com.aardouin.cv.fragments.ExperiencesFragment;
 import com.aardouin.cv.fragments.FormationFragment;
 import com.aardouin.cv.fragments.InteretsFragments;
-import com.aardouin.cv.fragments.PDFFragments;
-import com.aardouin.cv.fragments.PortfolioFragment;
 import com.aardouin.cv.fragments.PresentationFragment;
 import com.aardouin.cv.views.ActionBar;
 
@@ -37,7 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     private FrameLayout contentFrame;
     private LeftDrawerAdapter leftDrawerAdapter;
     private LeftDrawerAdapter.MenuItem currentItem;
-    private long lastBackTimeStamp = -1 ;
+    private long lastBackTimeStamp = -1;
 
     @Override
     protected void onStart() {
@@ -95,13 +93,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     @Override
     public void onBackPressed() {
         AbstractContentFragment currentFragment = ((AbstractContentFragment) getSupportFragmentManager().findFragmentByTag(currentItem.name()));
-        if(currentFragment ==  null || !currentFragment.doBack()){
+        if (currentFragment == null || !currentFragment.doBack()) {
             long timestampNow = System.currentTimeMillis() / 1000;
 
-            if( timestampNow - lastBackTimeStamp > 3){
+            if (timestampNow - lastBackTimeStamp > 3) {
                 lastBackTimeStamp = timestampNow;
-                Toast.makeText(getBaseContext(),"Appuer de nouveau pour quitter",Toast.LENGTH_LONG).show();
-            }else{
+                Toast.makeText(getBaseContext(), "Appuer de nouveau pour quitter", Toast.LENGTH_LONG).show();
+            } else {
                 super.onBackPressed();
             }
         }
@@ -113,7 +111,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
             Fragment fragment = getFragmentForItem(item);
 
             if (fragment != null) {
-                showFragment(fragment,item);
+                showFragment(fragment, item);
             }
             hideMenu();
             this.currentItem = item;
@@ -129,28 +127,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
         if (fragment == null) {
             switch (item) {
                 case Presentation:
-                        fragment = new PresentationFragment();
+                    fragment = new PresentationFragment();
                     break;
                 case Formation:
-                        fragment = new FormationFragment();
+                    fragment = new FormationFragment();
                     break;
                 case Experiences:
-                        fragment = new ExperiencesFragment();
+                    fragment = new ExperiencesFragment();
                     break;
                 case Competences:
-                        fragment = new CompetencesFragment();
+                    fragment = new CompetencesFragment();
                     break;
                 case Loisirs:
-                        fragment = new InteretsFragments();
+                    fragment = new InteretsFragments();
                     break;
                 case Contacts:
-                        fragment = new ContactsFragment();
-                    break;
-                case PDF:
-                        fragment = new PDFFragments();
-                    break;
-                case Portfolio:
-                        fragment = new PortfolioFragment();
+                    fragment = new ContactsFragment();
                     break;
             }
         }
@@ -160,7 +152,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.ActionBa
     private void showFragment(Fragment fragment, LeftDrawerAdapter.MenuItem item) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        transaction.replace(contentFrame.getId(), fragment,item.name());
+        transaction.replace(contentFrame.getId(), fragment, item.name());
 
         transaction.commit();
     }

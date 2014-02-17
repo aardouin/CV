@@ -21,7 +21,6 @@ public class LeftDrawerAdapter extends ArrayAdapter {
                 return "Présentation";
             }
         },
-        Formation,
         Experiences {
             @Override
             public String toString() {
@@ -35,10 +34,14 @@ public class LeftDrawerAdapter extends ArrayAdapter {
                 return "Compétences";
             }
         },
+        Formation,
         Loisirs,
-        Portfolio,
-        PDF,
-        Contacts
+        Contacts {
+            @Override
+            public String toString() {
+                return "Infos et contacts";
+            }
+        },
 
 
     }

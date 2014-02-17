@@ -81,7 +81,7 @@ public class CategoryCompetencesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true; // 3((Competence) getChild(groupPosition, childPosition)).getDetailCompetence() != null;
+        return true; // 3((Competence) getChild(groupPosition, childPosition)).getDetailsCompetence() != null;
     }
 
     @Override

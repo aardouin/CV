@@ -29,5 +29,8 @@
     <dimen name="competence_cell_padding">20dp</dimen>
     <dimen name="level_outer_border">1dp</dimen>
     <dimen name="paragraphe_separator">20dp</dimen>
+    <dimen name="popup_padding">20dp</dimen>
+    <dimen name="puce_size">5dp</dimen>
+    <dimen name="popup_border">3dp</dimen>
 
 </resources>

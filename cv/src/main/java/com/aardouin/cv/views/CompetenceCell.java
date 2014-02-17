@@ -44,10 +44,10 @@ public class CompetenceCell extends FrameLayout {
     }
 
 
-    public void setCompetence(Competence competence,int color) {
+    public void setCompetence(Competence competence, int color) {
         this.text.setText(competence.getName());
-        this.level.setLevel(competence.getLevel(),color);
-        this.infoButton.setVisibility(competence.getDetailCompetence() != null ? View.VISIBLE : View.GONE);
+        this.level.setLevel(competence.getLevel(), color);
+        this.infoButton.setVisibility(competence.getDetailsCompetence() != null ? View.VISIBLE : View.GONE);
     }
 
 

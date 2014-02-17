@@ -165,7 +165,7 @@ public class TextViewEx extends TextView {
             for (int j = 0; j < lineAsWords.length; j++) {
 
                 String word = lineAsWords[j];
-
+/*
                 if (spannableString != null && spans.length > 0) {
                     paint.setColor(getCurrentTextColor());
                     for (URLSpan span : spans) {
@@ -175,7 +175,7 @@ public class TextViewEx extends TextView {
                         }
                     }
 
-                }
+                }*/
 
 
                 if (lines == maxLines && j == lineAsWords.length - 1) {

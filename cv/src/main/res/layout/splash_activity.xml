@@ -5,12 +5,21 @@
     android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/center_icone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerInParent="true"
         android:text="@string/name"
         android:drawableTop="@drawable/ic_launcher"
+        style="@style/blueText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/center_icone"
+        android:layout_centerHorizontal="true"
+        android:text="23 ans"
         style="@style/blueText" />
 
     <TextView
